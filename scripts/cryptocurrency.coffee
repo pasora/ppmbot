@@ -25,8 +25,9 @@ module.exports = (robot) ->
         json = JSON.parse(body)
         try
           price = json[currency]['last']
+          unit = json[currency]['symbol']
           msg.send ":bitcoin: -> #{currency}"
-          msg.send "#{price}"
+          msg.send "#{unit}#{price}"
           msg.send "Source: www.blockchain.com"
         catch error
           msg.send "Unknown currency: #{currency}"
