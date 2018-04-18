@@ -19,4 +19,5 @@
 module.exports = (robot) ->
 
   robot.respond /名言/i, (msg) ->
-    msg.send msg.random ["え、ブルーバックス読めばできんの?","Mr. RGRじゃねえよ","未来を見据えてた","なんでiPhoneにしないの?"]
+    msg.send msg.random ["え、ブルーバックス読めばできんの?","Mr. RGRじゃねえよ","未来を見据えてた","なんでiPhoneにしないの?","え、みんなパンナコッタっていつ知った?"]
+
