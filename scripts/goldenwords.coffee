@@ -8,7 +8,10 @@
 #   NONE
 #
 # Commands:
-#   hubot 名言 - 名言を返します
+#   meigen add - 名言を追加します
+#   meigen del - 最後の名言を削除します
+#   meigen random - 名言を1つ返します
+#   meigen list - 名言をすべて返します
 #
 # Notes:
 #   NONE
@@ -17,16 +20,24 @@
 #   pasora
 
 module.exports = (robot) ->
+  robot.brain.autoSave = true
 
-  robot.hear /名言/i, (msg) ->
-    msg.send "名言占い〜今日の運勢は〜?"
-    msg.send msg.random ["え、ブルーバックス読めばできんの?",
-      "Mr.RGRじゃねえよ",
-      "未来を見据えてた",
-      "なんでiPhoneにしないの?",
-      "湘南国際女子短期大学超楽しそう",
-      "最近は毎日ハーゲンダッツ",
-      "公開しても後悔なし",
-      "伊右衛門2はブラジルで作られる",
-      "え、みんなパンナコッタっていつ知った?"]
+  robot.hear /^meigen\s+add\s+(.+)$/, (msg) ->
+    meigen = robot.brain.get("meigen") || []
+    meigen.push(msg.match[1])
+    robot.brain.set("meigen", meigen)
+
+  robot.hear /^meigen\s+del$/, (msg) ->
+    meigen = robot.brain.get("meigen") || []
+    msg.send "deleted: #{meigen.pop()}"
+    robot.brain.set("meigen", meigen)
+
+  robot.hear /^meigen\s+list$/i, (msg) ->
+    meigen = robot.brain.get("meigen") || []
+    msg.send ":writing_hand: 名言集 :writing_hand:"
+    msg.send "#{meigen.join("\n")}"
+
+  robot.hear /.*(名言|meigen\s+random).*/i, (msg) ->
+    meigen = robot.brain.get("meigen") || []
+    msg.send "#{meigen[Math.floor(Math.random()*meigen.length)]}"
 
