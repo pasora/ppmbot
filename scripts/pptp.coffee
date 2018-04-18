@@ -9,7 +9,7 @@
 #
 # Commands:
 #   hubot エイサーイ - "ハラマスコーイ"
-#   hubot ハラマスコーイ - "http://mangalifewin.takeshobo.co.jp/rensai/popute/popute-015/15112/"
+#   hubot ハラマスコーイ - link to the kuso manga
 #
 # Notes:
 #   NONE
