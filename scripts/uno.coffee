@@ -47,14 +47,14 @@ module.exports = (robot) ->
     rank = 1
     for player in uno
       if rank == 1
-        msg.send ":first_place_medal:\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}"
+        msg.send ":first_place_medal: #{player.name}	point: #{player.point}	win: #{player.win}"
         rank++
       else if rank == 2
-        msg.send ":second_place_medal:\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}"
+        msg.send ":second_place_medal: #{player.name}	point: #{player.point}	win: #{player.win}"
         rank++
       else if rank == 3
-        msg.send ":third_place_medal:\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}"
+        msg.send ":third_place_medal: #{player.name}	point: #{player.point}	win: #{player.win}"
         rank++
       else
-        msg.send "#{rank}\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}"
+        msg.send "#{rank}	#{player.name}	point: #{player.point}	win: #{player.win}"
 
