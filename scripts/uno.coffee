@@ -57,4 +57,5 @@ module.exports = (robot) ->
         rank++
       else
         msg.send "#{rank}	#{player.name}	point: #{player.point}	win: #{player.win}"
+        rank++
 
