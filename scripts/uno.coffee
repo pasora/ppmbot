@@ -44,18 +44,18 @@ module.exports = (robot) ->
 
     uno.sort sortPoint
 
-    message = ""
+    message = "Ranking\tPoint\tWin\tPlayer\n"
 
     for player, index in uno
       rank = index + 1
       if rank == 1
-        message += ":first_place_medal:\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}\n"
+        message += ":first_place_medal:\t#{player.point}\t#{player.win}\t#{player.name}\n"
       else if rank == 2
-        message += ":second_place_medal:\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}\n"
+        message += ":second_place_medal:\t#{player.point}\t#{player.win}\t#{player.name}\n"
       else if rank == 3
-        message += ":third_place_medal:\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}\n"
+        message += ":third_place_medal:\t#{player.point}\t#{player.win}\t#{player.name}\n"
       else
-        message += "#{rank}\t#{player.name}\tpoint:\t#{player.point}\twin:\t#{player.win}\n"
+        message += "#{rank}\t\t#{player.point}\t#{player.win}\t#{player.name}\n"
 
     msg.send message
 
