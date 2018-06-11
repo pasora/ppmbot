@@ -32,6 +32,13 @@ module.exports = (robot) ->
     msg.send "deleted: #{study.pop()}"
     robot.brain.set("study", study)
 
+  robot.hear /^study\s+poll$/i, (msg) ->
+    study = robot.brain.get("study") || []
+    message = '/poll "Which theme do you want to study?" "'
+    message += "#{study.join('" "')}"
+    message += '"'
+    msg.send message
+
   robot.hear /^study\s+list$/i, (msg) ->
     study = robot.brain.get("study") || []
     msg.send "#{study.join("\n")}"
